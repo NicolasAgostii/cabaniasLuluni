@@ -8,7 +8,10 @@ export default function App() {
     <BrowserRouter>
       {/* Navbar */}
       <div className="bg-white shadow-md py-4 px-6 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-indigo-600">🏡 Luluni Cabañas</h1>
+        <h1 className="text-2xl font-bold text-indigo-600">
+          🏡 Luluni Cabañas
+        </h1>
+
         <nav className="space-x-6">
           <Link
             to="/"
