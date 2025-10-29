@@ -5,24 +5,28 @@ export default function CabaniaCard({ cabania }) {
   const img = cabania?.fotoUrls?.[0] ?? "";
 
   const handleClick = () => {
-    navigate(`/calendario/${cabania.id}`); // usa el id de la cabaña
+    navigate(`/calendario/${cabania.id}`);
   };
 
   return (
     <div
       onClick={handleClick}
-      className="bg-white rounded-xl shadow-lg p-4 w-64 hover:scale-105 transition-transform duration-200 cursor-pointer"
+      className="bg-white rounded-2xl shadow-xl p-6 w-72 hover:scale-105 transition-transform duration-300 cursor-pointer"
     >
       <img
         src={img}
         alt="foto"
-        className="w-full h-40 object-cover rounded-md bg-gray-100"
+        className="w-full h-48 object-cover rounded-lg bg-gray-100"
       />
-      <h3 className="font-semibold text-gray-800 mt-2">{cabania.descripcion}</h3>
+      <h3 className="font-semibold text-gray-800 mt-3 text-lg">
+        {cabania.descripcion}
+      </h3>
       <p className="text-sm text-gray-600">
         Capacidad: {cabania.capacidad} personas
       </p>
-      <p className="text-indigo-600 font-bold mt-1">${cabania.precio}</p>
+      <p className="text-indigo-700 font-bold mt-2 text-lg">
+        ${cabania.precio}
+      </p>
     </div>
   );
 }

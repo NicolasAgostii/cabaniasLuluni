@@ -1,5 +1,6 @@
 package com.nicolas.cabanias.luluni.cabanias_luluni.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,25 +9,25 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name = "calendarios")
+@Table(name = "anios")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Calendario {
+public class Anio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
+    private Integer numero;
+
+    @ManyToOne
+    @JoinColumn(name = "calendario_id")
+    @JsonBackReference
+    private Calendario calendario;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "calendario_id")
-    @JsonManagedReference
-    private List<Anio> anios; // Ahora contiene objetos Anio, no solo enteros
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "calendario_id")
+    @JoinColumn(name = "anio_id")
     @JsonManagedReference
     private List<Mes> meses;
 }

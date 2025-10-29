@@ -1,6 +1,5 @@
 package com.nicolas.cabanias.luluni.cabanias_luluni.dtos;
 
-import com.nicolas.cabanias.luluni.cabanias_luluni.entities.Anio;
 import com.nicolas.cabanias.luluni.cabanias_luluni.entities.Mes;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,9 +9,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CalendarioDTO {
+public class AnioDTO {
     private Long id;
-    private String nombre;
-    private List<Anio> anios;
+    private Integer numero;
     private List<Mes> meses;
 }

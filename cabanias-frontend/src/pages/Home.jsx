@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Navbar from "../components/Navbar";
 import CabaniaCard from "../components/CabaniaCard";
 
 export default function Home() {
@@ -14,13 +13,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen p-10" style={{ backgroundColor: "#d1d5db" }}>
-      <Navbar />
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
-        Disponibilidad de Cabañas
-      </h1>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 justify-items-center">
+    <div className="min-h-screen bg-gray-300 flex flex-col items-center py-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-center">
         {cabanias.map((c) => (
           <CabaniaCard key={c.id} cabania={c} />
         ))}
